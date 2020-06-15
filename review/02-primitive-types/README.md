@@ -2,7 +2,7 @@
 
 ## /exercises/02-primitive-types 
 
-> 6/15/2020, 12:33:57 PM 
+> 6/15/2020, 12:58:12 PM 
 
 [../README.md](../README.md)
 
@@ -12,5 +12,5 @@
   - [/string.js](./examples/README.md#stringjs)  
   - [/typeof.js](./examples/README.md#typeofjs)  
 - [/exercises](./exercises/README.md)
-  - [/fill-in-the-type.js](./exercises/README.md#fill-in-the-typejs) - _incomplete_ 
+  - [/fill-in-the-type.js](./exercises/README.md#fill-in-the-typejs)  
 
