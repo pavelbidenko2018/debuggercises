@@ -2,33 +2,33 @@
 
 ## /exercises/07-logical-operators/exercises 
 
-> 6/16/2020, 10:25:06 AM 
+> 6/16/2020, 3:01:19 PM 
 
 [../README.md](../README.md)
 
-- [/and.js](#andjs) - _fail_ 
-- [/not.js](#notjs) - _fail_ 
-- [/or.js](#orjs) - _fail_ 
-- [/ternary.js](#ternaryjs) - _fail_ 
+- [/and.js](#andjs) - _pass_ 
+- [/not.js](#notjs) - _pass_ 
+- [/or.js](#orjs) - _pass_ 
+- [/ternary.js](#ternaryjs) - _pass_ 
 
 ---
 
 ## /and.js 
 
-> fail 
+> pass 
 >
 > [review source](../../../exercises/07-logical-operators/exercises/and.js)
 
 ```txt
-- FAIL: Test 1
-- FAIL: Test 2
-- FAIL: Test 3
-- FAIL: Test 4
-- FAIL: Test 5
-- FAIL: Test 6
-- FAIL: Test 7
++ PASS: Test 1
++ PASS: Test 2
++ PASS: Test 3
++ PASS: Test 4
++ PASS: Test 5
++ PASS: Test 6
++ PASS: Test 7
 + PASS: Test 8
-- FAIL: Test 9
++ PASS: Test 9
 ```
 
 ```js
@@ -38,6 +38,10 @@
 //  ... without using &&
 function and(left, right) {
 
+    if (Number(left) === 0) return left;
+    if (Number(right) === 0) return right;
+
+    return right;
 }
 
 const _1_expect = 0;
@@ -75,7 +79,6 @@ console.assert(_8_actual === _8_expect, 'Test 8');
 const _9_expect = 'asdf';
 const _9_actual = and(Infinity, 'asdf');
 console.assert(_9_actual === _9_expect, 'Test 9');
-
 ```
 
 [TOP](#debuggercises)
@@ -84,20 +87,20 @@ console.assert(_9_actual === _9_expect, 'Test 9');
 
 ## /not.js 
 
-> fail 
+> pass 
 >
 > [review source](../../../exercises/07-logical-operators/exercises/not.js)
 
 ```txt
-- FAIL: Test 1
-- FAIL: Test 2
-- FAIL: Test 3
-- FAIL: Test 4
-- FAIL: Test 5
-- FAIL: Test 6
-- FAIL: Test 7
-- FAIL: Test 8
-- FAIL: Test 9
++ PASS: Test 1
++ PASS: Test 2
++ PASS: Test 3
++ PASS: Test 4
++ PASS: Test 5
++ PASS: Test 6
++ PASS: Test 7
++ PASS: Test 8
++ PASS: Test 9
 ```
 
 ```js
@@ -106,7 +109,8 @@ console.assert(_9_actual === _9_expect, 'Test 9');
 // write a function that behaves the same as !
 //  ... but doesn't use !
 function not(value) {
-
+    if (Boolean(value) == true) return false;
+    return true;
 }
 
 const _1_expect = true;
@@ -144,7 +148,6 @@ console.assert(_8_actual === _8_expect, 'Test 8');
 const _9_expect = false;
 const _9_actual = not(1);
 console.assert(_9_actual === _9_expect, 'Test 9');
-
 ```
 
 [TOP](#debuggercises)
@@ -153,20 +156,20 @@ console.assert(_9_actual === _9_expect, 'Test 9');
 
 ## /or.js 
 
-> fail 
+> pass 
 >
 > [review source](../../../exercises/07-logical-operators/exercises/or.js)
 
 ```txt
-- FAIL: Test 1
-- FAIL: Test 2
-- FAIL: Test 3
-- FAIL: Test 4
-- FAIL: Test 5
-- FAIL: Test 6
-- FAIL: Test 7
++ PASS: Test 1
++ PASS: Test 2
++ PASS: Test 3
++ PASS: Test 4
++ PASS: Test 5
++ PASS: Test 6
++ PASS: Test 7
 + PASS: Test 8
-- FAIL: Test 9
++ PASS: Test 9
 ```
 
 ```js
@@ -176,7 +179,31 @@ console.assert(_9_actual === _9_expect, 'Test 9');
 //  ... without using ||
 function or(left, right) {
 
+    const nLeft = Number(left);
+    const nRight = Number(right);
+
+    if (typeof left === 'number' && typeof right === 'number') {
+        return Math.max(left, right)
+    }
+
+    if (typeof left === 'boolean' && typeof right === 'boolean') {
+        if (nLeft === 1) return left;
+        if (nRight === 1) return right;
+        return false;
+    }
+
+    if (typeof left === 'string' && typeof right === 'string') {
+        if (nLeft !== 0) return left;
+        if (nRight !== 0) return right;
+    }
+
+    if (left === Infinity) return Infinity;
+    if (right === Infinity) return Infinity;
+
+    return undefined;
 }
+
+
 
 const _1_expect = 0;
 const _1_actual = or(0, 0);
@@ -213,7 +240,6 @@ console.assert(_8_actual === _8_expect, 'Test 8');
 const _9_expect = Infinity;
 const _9_actual = or(Infinity, 'asdf');
 console.assert(_9_actual === _9_expect, 'Test 9');
-
 ```
 
 [TOP](#debuggercises)
@@ -222,20 +248,20 @@ console.assert(_9_actual === _9_expect, 'Test 9');
 
 ## /ternary.js 
 
-> fail 
+> pass 
 >
 > [review source](../../../exercises/07-logical-operators/exercises/ternary.js)
 
 ```txt
-- FAIL: Test 1
-- FAIL: Test 2
-- FAIL: Test 3
-- FAIL: Test 4
-- FAIL: Test 5
-- FAIL: Test 6
-- FAIL: Test 7
-- FAIL: Test 8
-- FAIL: Test 9
++ PASS: Test 1
++ PASS: Test 2
++ PASS: Test 3
++ PASS: Test 4
++ PASS: Test 5
++ PASS: Test 6
++ PASS: Test 7
++ PASS: Test 8
++ PASS: Test 9
 ```
 
 ```js
@@ -245,6 +271,12 @@ console.assert(_9_actual === _9_expect, 'Test 9');
 //  ... without using ? :
 function ternary(condition, first, second) {
 
+    if (Boolean(condition) === true)
+        return first;
+
+    if (Boolean(condition) === false) {
+        return second;
+    }
 }
 
 const ternary1 = ternary(1, 'A', 'B');
@@ -282,7 +314,6 @@ console.assert(isTrue8, 'Test 8');
 const ternary9 = ternary(NaN, 'A', 'B');
 const isTrue9 = ternary9 === 'B';
 console.assert(isTrue9, 'Test 9');
-
 ```
 
 [TOP](#debuggercises)
