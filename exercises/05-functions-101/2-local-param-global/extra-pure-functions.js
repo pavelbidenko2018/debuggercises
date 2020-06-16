@@ -16,25 +16,25 @@
 // which of these are pure functions?
 
 function a() {
-  return x + y;
-}
+    return x + y;
+} //no 
 
 function b(y) {
-  result = x + y;
-  return result;
-}
+    result = x + y;
+    return result;
+} //no
 
 function c(y, x) {
-  const m = y - x
-  return x + m;
-}
+    const m = y - x
+    return x + m;
+} //yes 
 
 function d(x, y) {
-  const a = 'hi';
-  return x + y + z;
-}
+    const a = 'hi';
+    return x + y + z;
+} //no 
 
 function e(x, y) {
-  p += z;
-  return z + y;
-}
+    p += z;
+    return z + y;
+} //no
