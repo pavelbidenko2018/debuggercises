@@ -4,6 +4,12 @@
 //  ... without using ? :
 function ternary(condition, first, second) {
 
+    if (Boolean(condition) === true)
+        return first;
+
+    if (Boolean(condition) === false) {
+        return second;
+    }
 }
 
 const ternary1 = ternary(1, 'A', 'B');

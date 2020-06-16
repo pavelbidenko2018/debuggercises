@@ -4,7 +4,31 @@
 //  ... without using ||
 function or(left, right) {
 
+    const nLeft = Number(left);
+    const nRight = Number(right);
+
+    if (typeof left === 'number' && typeof right === 'number') {
+        return Math.max(left, right)
+    }
+
+    if (typeof left === 'boolean' && typeof right === 'boolean') {
+        if (nLeft === 1) return left;
+        if (nRight === 1) return right;
+        return false;
+    }
+
+    if (typeof left === 'string' && typeof right === 'string') {
+        if (nLeft !== 0) return left;
+        if (nRight !== 0) return right;
+    }
+
+    if (left === Infinity) return Infinity;
+    if (right === Infinity) return Infinity;
+
+    return undefined;
 }
+
+
 
 const _1_expect = 0;
 const _1_actual = or(0, 0);

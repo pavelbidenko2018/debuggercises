@@ -4,6 +4,10 @@
 //  ... without using &&
 function and(left, right) {
 
+    if (Number(left) === 0) return left;
+    if (Number(right) === 0) return right;
+
+    return right;
 }
 
 const _1_expect = 0;
