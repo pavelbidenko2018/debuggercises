@@ -1,7 +1,10 @@
 function mystery(a, b) {
-
+    if (a === Number(b) && b === null || b === Boolean(a) || b === undefined) {
+        return 'path 1';
+    } else if (typeof a === typeof b || b === NaN) {
+        return 'path 2';
+    } else return 'path 3';
 }
-
 
 const _1_expect = 'path 1';
 const _1_actual = mystery(0, null);
@@ -15,6 +18,8 @@ const _3_expect = 'path 1';
 const _3_actual = mystery(NaN, false);
 console.assert(_3_actual === _3_expect, 'Test 3');
 
+//////////////////////////////////////////////////////
+
 const _4_expect = 'path 2';
 const _4_actual = mystery('hello', 'goodbye');
 console.assert(_4_actual === _4_expect, 'Test 4');
@@ -27,6 +32,9 @@ const _6_expect = 'path 2';
 const _6_actual = mystery(true, false);
 console.assert(_6_actual === _6_expect, 'Test 6');
 
+
+//////////////////////////////////////////////////////
+
 const _7_expect = 'path 3';
 const _7_actual = mystery('hello', 100);
 console.assert(_7_actual === _7_expect, 'Test 7');
@@ -38,3 +46,4 @@ console.assert(_8_actual === _8_expect, 'Test 8');
 const _9_expect = 'path 3';
 const _9_actual = mystery(0, '0');
 console.assert(_9_actual === _9_expect, 'Test 9');
+//////////////////////////////////////////////////////
