@@ -2,7 +2,7 @@
 
 ## /exercises/06-explicit-coercion/exercises 
 
-> 6/16/2020, 3:01:19 PM 
+> 6/17/2020, 8:09:52 AM 
 
 [../README.md](../README.md)
 
