@@ -9,12 +9,12 @@
  * @returns {boolean}
  */
 function sameTruthiness(a, b) {
-  // no need to check a or b, they can be any type
+    // no need to check a or b, they can be any type
 
-  const result = _;
+    const result = (a && b) ? true : false;
 
-  if (typeof result !== 'boolean') { throw new TypeError(); }
-  return result;
+    if (typeof result !== 'boolean') { throw new TypeError(); }
+    return result;
 }
 
 

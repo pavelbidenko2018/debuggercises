@@ -11,18 +11,18 @@
  * @returns {boolean}
  */
 function areNotSameLength(str1, str2) {
-  if (typeof str1 !== 'string') { throw new TypeError(); }
-  if (typeof str2 !== 'string') { throw new TypeError(); }
+    if (typeof str1 !== 'string') { throw new TypeError(); }
+    if (typeof str2 !== 'string') { throw new TypeError(); }
 
-  let result;
-  if (str1.Length = str2.Length) {
-    result += true;
-  } else {
-    result += false;
-  }
+    let result;
+    if (str1.length != str2.length) {
+        result = true;
+    } else {
+        result = false;
+    }
 
-  if (typeof result !== 'boolean') { throw new TypeError(); }
-  return result;
+    if (typeof result !== 'boolean') { throw new TypeError(); }
+    return result;
 }
 
 

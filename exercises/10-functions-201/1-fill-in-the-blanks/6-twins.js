@@ -10,13 +10,13 @@
  * @returns {boolean}
  */
 function notAndA(x, y) {
-  if (typeof x !== 'boolean') { throw new TypeError(); }
-  if (typeof y !== 'boolean') { throw new TypeError(); }
+    if (typeof x !== 'boolean') { throw new TypeError(); }
+    if (typeof y !== 'boolean') { throw new TypeError(); }
 
-  const result = _;
+    const result = !(x && y);
 
-  if (typeof result !== 'boolean') { throw new TypeError(); }
-  return result;
+    if (typeof result !== 'boolean') { throw new TypeError(); }
+    return result;
 }
 
 /**
@@ -26,13 +26,13 @@ function notAndA(x, y) {
  * @returns {boolean}
  */
 function notAndB(x, y) {
-  if (typeof x !== 'boolean') { throw new TypeError(); }
-  if (typeof y !== 'boolean') { throw new TypeError(); }
+    if (typeof x !== 'boolean') { throw new TypeError(); }
+    if (typeof y !== 'boolean') { throw new TypeError(); }
 
-  const result = _;
+    const result = !x || !y;
 
-  if (typeof result !== 'boolean') { throw new TypeError(); }
-  return result;
+    if (typeof result !== 'boolean') { throw new TypeError(); }
+    return result;
 }
 
 

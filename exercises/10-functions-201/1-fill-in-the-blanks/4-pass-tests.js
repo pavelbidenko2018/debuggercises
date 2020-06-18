@@ -9,14 +9,13 @@
  * @returns {boolean}
  */
 function mystery(a) {
-  // no need to check a , they can be any type
+    // no need to check a , they can be any type
 
-  const result = _;
+    const result = (!isNaN(Number(a)) && Boolean(a) || a === undefined) ? !Boolean(a) : Boolean(a);
 
-  if (typeof result !== 'boolean') { throw new TypeError(); }
-  return result;
+    if (typeof result !== 'boolean') { throw new TypeError(); }
+    return result;
 }
-
 
 const _1_expect = false;
 const _1_actual = mystery('1');

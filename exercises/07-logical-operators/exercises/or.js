@@ -4,30 +4,17 @@
 //  ... without using ||
 function or(left, right) {
 
-    const nLeft = Number(left);
-    const nRight = Number(right);
+    const nLeft = Boolean(left);
+    const nRight = Boolean(right);
 
-    if (typeof left === 'number' && typeof right === 'number') {
-        return Math.max(left, right)
-    }
+    if (left == undefined) return left;
+    if (right == undefined) return right;
 
-    if (typeof left === 'boolean' && typeof right === 'boolean') {
-        if (nLeft === 1) return left;
-        if (nRight === 1) return right;
-        return false;
-    }
+    if (nLeft) return left;
+    if (nRight) return right;
 
-    if (typeof left === 'string' && typeof right === 'string') {
-        if (nLeft !== 0) return left;
-        if (nRight !== 0) return right;
-    }
-
-    if (left === Infinity) return Infinity;
-    if (right === Infinity) return Infinity;
-
-    return undefined;
+    return left;
 }
-
 
 
 const _1_expect = 0;
