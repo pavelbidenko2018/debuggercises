@@ -14,7 +14,7 @@ const renderLogEntry = entry => {
       .map(msg => toString(msg, 4))
       .join('  ');
   }
-  if (4 <= entry.status && entry.status <= 8) {
+  if (4 <= entry.status) {
     const isAsync = entry.status === 5
       ? '(async) ' : '';
     return `${isAsync}UNCAUGHT: ${entry.stack} `;
@@ -125,32 +125,45 @@ const generateReviews = (virDir, isNested, parentPath = '') => {
   if (virDir.dirs) {
     virDir.dirs
       .forEach(subDir => {
-        subDir.title = virDir.title;
+        subDir.config = Object.assign({}, virDir.config, subDir.config);
         subDir.lastEvaluation = virDir.lastEvaluation;
         generateReviews(subDir, true, parentPath + virDir.path)
       });
   }
 
-  const top = `# ${virDir.title} \n\n`
-    + `## ${parentPath + virDir.path} \n\n`
-    + `> ${(new Date(virDir.lastEvaluation)).toLocaleString()} \n\n`;
-  // + `> ${ interpret(virDir.report.status) }: ${ (new Date(virDir.lastEvaluation)).toLocaleString() } \n\n`;
+  const dotDots = (depth) => {
+    let dots = '';
+    for (let i = depth; i > 0; i--) {
+      dots += '../'
+    }
+    return dots;
+  }
+  const parentPathsToLink = parentPath
+    .split('/')
+    .slice(1);
+  const linkifiedParentPath = parentPathsToLink
+    .map((dirName, index) => `[${dirName}](${dotDots(parentPathsToLink.length - index)}README.md)`)
+    .join('/');
+  const linkifiedPath = linkifiedParentPath + virDir.path
 
+  const top = `# ${virDir.config.title} \n\n`
+    + `> ${(new Date(virDir.lastEvaluation)).toLocaleString()} \n\n`
+    + `## ${linkifiedPath} \n\n`;
+  // + `> ${ interpret(virDir.report.status) }: ${ (new Date(virDir.lastEvaluation)).toLocaleString() } \n\n`;
 
   const tableOfContents = generateTableOfContents(virDir);
 
-  // const title = (isNested ? '[../README.md](../README.md)\n\n' : '[../README.md](../README.md)\n\n')
-  const title = '[../README.md](../README.md)\n\n'
-    + tableOfContents;
 
-  const fileSections = !virDir.report.files
-    ? ''
-    : virDir.report.files
-      .map(fileReport => generateFileSectionMd(fileReport, virDir.title, parentPath + virDir.path))
-      .reduce((body, section) => body + section + '\n', '');
+  const fileSections = virDir.report.files
+    ? virDir.report.files
+      .map(fileReport => generateFileSectionMd(fileReport, virDir.config.title, parentPath + virDir.path))
+      .reduce((body, section) => body + section + '\n', '')
+    : '';
+
 
   const newREVIEW = top
-    + title + '\n'
+    // + title + '\n'
+    + tableOfContents
     + fileSections;
 
   virDir.review = newREVIEW;
@@ -158,17 +171,18 @@ const generateReviews = (virDir, isNested, parentPath = '') => {
 };
 
 const writeReviews = (virDir, basePath) => {
-  const reviewPathBase = pathModule.join(basePath, virDir.reviewPath || virDir.path);
+  //   const reviewPathBase = pathModule.normalize(pathModule.join(basePath, virDir.config.reviewPath || virDir.path));
   try {
-    fs.accessSync(reviewPathBase);
+    fs.accessSync(basePath);
   } catch (err) {
-    fs.mkdirSync(reviewPathBase);
+    fs.mkdirSync(basePath);
   };
-  const reviewPath = pathModule.join(reviewPathBase, 'README.md');
-  fs.writeFileSync(reviewPath, virDir.review);
+  const reviewReadmePath = pathModule.normalize(pathModule.join(basePath, 'README.md'));
+  fs.writeFileSync(reviewReadmePath, virDir.review);
+
   if (virDir.dirs) {
     virDir.dirs.forEach(subDir => {
-      writeReviews(subDir, pathModule.join(basePath, virDir.reviewPath || virDir.path));
+      writeReviews(subDir, pathModule.normalize(pathModule.join(basePath, subDir.path)));
     });
   };
 };

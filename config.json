@@ -2,9 +2,19 @@
   "title": "Debuggercises",
   "path": "/exercises",
   "reviewPath": "/review",
-  "buttons": {
-    "console": false,
-    "debugger": true,
-    "jsTutor": true
-  }
+  "loopGuard": {
+    "active": false,
+    "max": 20
+  },
+  "buttons": [
+    {
+      "console": true
+    },
+    {
+      "debugger": true
+    },
+    {
+      "jsTutor": true
+    }
+  ]
 }

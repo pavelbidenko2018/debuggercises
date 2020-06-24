@@ -9,6 +9,8 @@ const interpret = (value) =>
                 : value === 6 ? 'error' // try/catch at evaluation time (synchronous errors)
                   : value === 7 ? 'error (syntax)' // syntax error
                     : value === 8 ? 'incomplete' // ReferenceError: _ is not defined
-                      : 'unknown status';
+                      : value === 9 ? 'too much iteration' // Error: Loop exceeded [0-9] iterations
+                        : value === 10 ? 'too much recursion' // RangeError: Maximum call stack size exceeded
+                          : 'unknown status';
 
 module.exports = interpret;

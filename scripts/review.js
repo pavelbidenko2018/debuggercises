@@ -7,6 +7,8 @@
 const path = require('path');
 const fs = require('fs');
 
+const config = require('../config.json');
+
 // require evaluation & reporting scripts (non-native, stored in /lib)
 const reportify = require('./lib/reportify');
 const consoleCatcherFactory = require('./lib/console-catcher');
@@ -76,10 +78,27 @@ process.on('exit', (exitCode) => {
 
     // write the new markdown files!
     index.reviewPath = index.reviewPath;
-    fs.rmdirSync(path.normalize(path.join(PARENT_DIR, index.reviewPath)), { recursive: true });
-    fs.mkdirSync(path.normalize(path.join(PARENT_DIR, index.reviewPath)));
 
-    reviewify.writeReviews(index, PARENT_DIR);
+    const deleteFolderRecursive = function (pathToDelete) {
+      if (fs.existsSync(pathToDelete)) {
+        const files = fs.readdirSync(pathToDelete);
+        files.forEach((file) => {
+          const curPath = path.normalize(path.join(pathToDelete, file));
+          if (fs.lstatSync(curPath).isDirectory()) {
+            deleteFolderRecursive(curPath);
+          } else {
+            fs.unlinkSync(curPath);
+          }
+        });
+        fs.rmdirSync(pathToDelete);
+      }
+    };
+    const absReviewPath = path.normalize(path.join(PARENT_DIR, index.config.reviewPath));
+    deleteFolderRecursive(absReviewPath);
+
+    // console.log(JSON.stringify(index, null, '  '))
+
+    reviewify.writeReviews(index, absReviewPath);
 
     // done!
     nativeConsole.log(`exiting with code: ${exitCode}`);
@@ -97,7 +116,7 @@ index.lastEvaluation = (new Date()).toJSON();
 
 // actually evaluate the exercises
 //  check out /lib/evaluate.js for more details
-evaluate(reportMap, PARENT_DIR, reportThrown);
+evaluate(reportMap, PARENT_DIR, reportThrown, config.loopGuard.max);
 
 
 

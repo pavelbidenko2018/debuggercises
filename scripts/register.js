@@ -37,24 +37,26 @@ const register = function (dirPath) {
     // is the next path a directory or a file?
     const isDirectory = fs.statSync(path.normalize(path.join(dirPath, nextPath))).isDirectory();
     // if it is a file, and not a javascript file, skip it
-    if (!isDirectory && path.extname(nextPath) !== '.js') continue;
+    if (nextPath.includes('.git') || !isDirectory && path.extname(nextPath) !== '.js') continue;
 
     if (isDirectory) {
+
       // recursively register the path if it's a directory
       //  this will create a virtual folder structure for this path
       const subDir = register(path.normalize(path.join(dirPath, nextPath)));
-      try {
-        // check if that directory has an over-riding buttons configuration
-        //   if it does, add it to the virtual directory
-        const subConfigStr = fs.readFileSync(path.normalize(path.join(EXERCISES_DIR, subDir.path, 'config.json')), 'utf-8');
-        const subConfig = JSON.parse(subConfigStr);
-        subDir.buttons = subConfig;
-      } catch (err) { }
       if (subDir) {
         // add the registered sub-directory to the current virtual directory
         dirs.push(subDir);
         if (isExample) subDir.isExample = isExample;
       };
+
+      const dirConfigPath = path.join(dirPath, nextPath, 'config.json');
+      if (fs.existsSync(dirConfigPath)) {
+        const subConfigStr = fs.readFileSync(dirConfigPath, 'utf-8');
+        const subConfig = JSON.parse(subConfigStr);
+        subDir.config = subConfig;
+      }
+
     } else {
       // create a file path object, and push it into the array of files in this directory
       const fileData = { path: '/' + nextPath };
@@ -76,9 +78,20 @@ const register = function (dirPath) {
       .split(path.sep).join('/')
       .split('/').pop(),
   };
+
   // add the virtual files & sub-directories if they exist
-  if (files.length > 0) virDir.files = files;
-  if (dirs.length > 0) virDir.dirs = dirs;
+  if (dirs.length > 0) { virDir.dirs = dirs; }
+  if (files.length > 0) {
+    const readme = files
+      .find(fileObj => fileObj.path.toLowerCase() === '/readme.js')
+    if (readme) {
+      virDir.files = files
+        .filter(fileObj => fileObj !== readme);
+      virDir.files.unshift(readme)
+    } else {
+      virDir.files = files;
+    }
+  };
 
   // return the new virtual directory
   return virDir;
@@ -88,13 +101,9 @@ const register = function (dirPath) {
 console.log('\n--- registering .js files in ' + removeDirname(EXERCISES_DIR) + ' ---\n');
 
 // register the /exercises directory
-const preRegistered = register(EXERCISES_DIR);
+const registered = register(EXERCISES_DIR);
 // merge the repository config into the virtual directory
-const registered = Object.assign(preRegistered, {
-  title: config.title,
-  reviewPath: config.reviewPath,
-  buttons: config.buttons
-});
+registered.config = config;
 // set the date/time of last build
 registered.lastBuild = (new Date()).toJSON();
 
