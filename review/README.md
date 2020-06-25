@@ -1,6 +1,6 @@
 # Debuggercises 
 
-> 6/25/2020, 1:08:02 PM 
+> 6/25/2020, 1:45:39 PM 
 
 ## /exercises 
 
@@ -180,9 +180,9 @@
     - [/prefix-decrement.js](./14-increment-and-decrement/examples/README.md#prefix-decrementjs)  
     - [/prefix-increment.js](./14-increment-and-decrement/examples/README.md#prefix-incrementjs)  
   - [/exercises](./14-increment-and-decrement/exercises/README.md)
-    - [/1.js](./14-increment-and-decrement/exercises/README.md#1js) - _incomplete_ 
-    - [/2.js](./14-increment-and-decrement/exercises/README.md#2js) - _incomplete_ 
-    - [/3.js](./14-increment-and-decrement/exercises/README.md#3js) - _incomplete_ 
+    - [/1.js](./14-increment-and-decrement/exercises/README.md#1js) - _pass_ 
+    - [/2.js](./14-increment-and-decrement/exercises/README.md#2js) - _pass_ 
+    - [/3.js](./14-increment-and-decrement/exercises/README.md#3js) - _pass_ 
 - [/15-while](./15-while/README.md)
   - [/examples](./15-while/examples/README.md)
     - [/1-while.js](./15-while/examples/README.md#1-whilejs) - _pass_ 
