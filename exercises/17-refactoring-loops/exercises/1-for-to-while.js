@@ -6,15 +6,17 @@
  * @returns {string}
  */
 const repeatLengthTimes = (toRepeat) => {
-  if (typeof toRepeat !== 'string') { throw new TypeError('toRepeat'); }
+    if (typeof toRepeat !== 'string') { throw new TypeError('toRepeat'); }
 
-  let result = '';
-  for (let i = 0; i < toRepeat.length; i++) {
-    result += toRepeat;
-  }
+    let result = '';
+    let i = 0;
+    while (i < toRepeat.length) {
+        result += toRepeat;
+        i++;
+    }
 
-  if (typeof result !== 'string') { throw new TypeError('result'); }
-  return result;
+    if (typeof result !== 'string') { throw new TypeError('result'); }
+    return result;
 };
 
 
@@ -41,4 +43,3 @@ console.assert(_5_actual === _5_expect, 'Test  5');
 const _6_expect = '5432154321543215432154321';
 const _6_actual = repeatLengthTimes('54321');
 console.assert(_6_actual === _6_expect, 'Test  6');
-
