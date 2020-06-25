@@ -1,6 +1,6 @@
 # Debuggercises 
 
-> 6/25/2020, 5:27:12 AM 
+> 6/25/2020, 7:45:17 AM 
 
 ## [exercises](../../README.md)/[11-refactoring-conditionals](../README.md)/2-operator-to-statement 
 
@@ -27,10 +27,12 @@
 
 // refactor this function ot use if/else statements
 const conditional = (a, b) => {
-  const result = typeof a === 'boolean'
-    ? !a
-    : b;
-  return result;
+    let result;
+    if (typeof a === 'boolean') {
+        result = !a
+    } else result = b;
+
+    return result;
 };
 
 // path 1
@@ -50,7 +52,6 @@ console.assert(_5_actual === _5_expect, 'Test 3');
 const _6_expect = 'bye';
 const _6_actual = conditional('hi!', 'bye');
 console.assert(_6_actual === _6_expect, 'Test 4');
-
 ```
 
 [TOP](#debuggercises)
@@ -77,12 +78,14 @@ console.assert(_6_actual === _6_expect, 'Test 4');
 
 // refactor this function ot use if/else statements
 const conditional = (a, b) => {
-  const result = !a && !b
-    ? a
-    : a && b
-      ? b
-      : typeof a;
-  return result;
+    let result;
+
+    if (!a && !b) {
+        result = a;
+    } else if (a && b) {
+        result = b;
+    } else result = typeof a;
+    return result;
 };
 
 // path 1
@@ -111,7 +114,6 @@ console.assert(_5_actual === _5_expect, 'Test 5');
 const _6_expect = 'number';
 const _6_actual = conditional(100, false);
 console.assert(_6_actual === _6_expect, 'Test 6');
-
 ```
 
 [TOP](#debuggercises)
@@ -139,14 +141,16 @@ console.assert(_6_actual === _6_expect, 'Test 6');
 'use strict';
 
 const conditional = (a, b) => {
-  const result = typeof a === 'boolean'
-    ? a === b
-      ? a
-      : typeof b
-    : typeof b === 'boolean'
-      ? b
-      : typeof a;
-  return result;
+    let result;
+
+    if (typeof a === 'boolean') {
+        if (a === b) {
+            result = a;
+        } else result = typeof b;
+    } else if (typeof b === 'boolean') {
+        result = b;
+    } else result = typeof a;
+    return result;
 };
 
 // path 1
@@ -184,7 +188,6 @@ console.assert(_7_actual === _7_expect, 'Test 7');
 const _8_expect = 'undefined';
 const _8_actual = conditional(undefined, null);
 console.assert(_8_actual === _8_expect, 'Test 8');
-
 ```
 
 [TOP](#debuggercises)

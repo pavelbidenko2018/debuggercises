@@ -1,6 +1,6 @@
 # Debuggercises 
 
-> 6/25/2020, 5:27:12 AM 
+> 6/25/2020, 7:45:17 AM 
 
 ## [exercises](../../README.md)/[11-refactoring-conditionals](../README.md)/1-statement-to-operator 
 
@@ -27,13 +27,9 @@
 
 // refactor this function ot use a ternary operator
 const conditional = (a, b) => {
-  let result;
-  if (a && b) {
-    result = !a;
-  } else {
-    result = a === b;
-  }
-  return result;
+    let result;
+    result = (a && b) ? !a : a === b;
+    return result;
 };
 
 // path 1
@@ -53,7 +49,6 @@ console.assert(_5_actual === _5_expect, 'Test 3');
 const _6_expect = false;
 const _6_actual = conditional(false, 0);
 console.assert(_6_actual === _6_expect, 'Test 4');
-
 ```
 
 [TOP](#debuggercises)
@@ -80,15 +75,9 @@ console.assert(_6_actual === _6_expect, 'Test 4');
 
 // refactor this function ot use a ternary operator
 const conditional = (a, b) => {
-  let result;
-  if (a && b) {
-    result = !a;
-  } else if (a || b) {
-    result = !b;
-  } else {
-    result = a === b;
-  }
-  return result;
+    let result;
+    result = (a && b) ? !a : (a || b) ? !b : a === b;
+    return result;
 };
 
 // path 1
@@ -117,7 +106,6 @@ console.assert(_5_actual === _5_expect, 'Test 5');
 const _6_expect = false;
 const _6_actual = conditional(false, 0);
 console.assert(_6_actual === _6_expect, 'Test 6');
-
 ```
 
 [TOP](#debuggercises)
@@ -145,21 +133,10 @@ console.assert(_6_actual === _6_expect, 'Test 6');
 'use strict';
 
 const conditional = (a, b) => {
-  let result;
-  if (typeof a === 'number') {
-    if (typeof b === 'number') {
-      result = a + b;
-    } else {
-      result = b;
-    }
-  } else {
-    if (typeof b === 'string') {
-      result = b + a;
-    } else {
-      result = a;
-    }
-  }
-  return result;
+    let result;
+    result = (typeof a === 'number') ? ((typeof b === 'number') ? a + b : b) : ((typeof b === 'string') ? b + a : a);
+
+    return result;
 };
 
 // path 1
@@ -197,7 +174,6 @@ console.assert(_7_actual === _7_expect, 'Test 7');
 const _8_expect = true;
 const _8_actual = conditional(true, null);
 console.assert(_8_actual === _8_expect, 'Test 8');
-
 ```
 
 [TOP](#debuggercises)
