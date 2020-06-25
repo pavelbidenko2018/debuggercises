@@ -12,20 +12,20 @@
  * @returns {string}
  */
 const longestOrBoth = (str1, str2) => {
-  if (typeof str1 !== 'string') { throw new TypeError('str1'); }
-  if (typeof str2 !== 'string') { throw new TypeError('str2'); }
+    if (typeof str1 !== 'string') { throw new TypeError('str1'); }
+    if (typeof str2 !== 'string') { throw new TypeError('str2'); }
 
-  let result = '';
-  if (str1 >= str2) {
-    result === str1;
-  } if (str1 <= str2) {
-    result === str2;
-  } else {
-    result === `${str1}${str2}`;
-  }
+    let result = '';
+    if (str1.length > str2.length) {
+        result = str1;
+    } else if (str1.length < str2.length) {
+        result = str2;
+    } else {
+        result = `${str1}${str2}`;
+    }
 
-  if (typeof result !== 'string') { throw new TypeError('result'); }
-  return result;
+    if (typeof result !== 'string') { throw new TypeError('result'); }
+    return result;
 };
 
 
