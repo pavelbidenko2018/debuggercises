@@ -1,6 +1,6 @@
 # Debuggercises 
 
-> 6/25/2020, 2:44:14 PM 
+> 6/25/2020, 5:13:37 PM 
 
 ## [exercises](../../README.md)/[17-refactoring-loops](../README.md)/exercises 
 
@@ -34,15 +34,17 @@
  * @returns {string}
  */
 const repeatLengthTimes = (toRepeat) => {
-  if (typeof toRepeat !== 'string') { throw new TypeError('toRepeat'); }
+    if (typeof toRepeat !== 'string') { throw new TypeError('toRepeat'); }
 
-  let result = '';
-  for (let i = 0; i < toRepeat.length; i++) {
-    result += toRepeat;
-  }
+    let result = '';
+    let i = 0;
+    while (i < toRepeat.length) {
+        result += toRepeat;
+        i++;
+    }
 
-  if (typeof result !== 'string') { throw new TypeError('result'); }
-  return result;
+    if (typeof result !== 'string') { throw new TypeError('result'); }
+    return result;
 };
 
 
@@ -69,8 +71,6 @@ console.assert(_5_actual === _5_expect, 'Test  5');
 const _6_expect = '5432154321543215432154321';
 const _6_actual = repeatLengthTimes('54321');
 console.assert(_6_actual === _6_expect, 'Test  6');
-
-
 ```
 
 [TOP](#debuggercises)
@@ -104,21 +104,23 @@ console.assert(_6_actual === _6_expect, 'Test  6');
  * @returns {number}
  */
 const mystery = (x) => {
-  if (typeof x !== 'number') { throw new TypeError('x'); }
+    if (typeof x !== 'number') { throw new TypeError('x'); }
 
-  let result = 0;
-  for (let i = 0; i !== Math.abs(x); i++) {
-    if (x > 0) {
-      result += 1;
-    } else {
-      result += -1;
+    let result = 0;
+
+    while (Math.abs(result) !== Math.abs(x)) {
+        if (x > 0) {
+            result += 1;
+
+        } else {
+            result += -1;
+        }
+
     }
-  }
 
-  if (typeof result !== 'number') { throw new TypeError('result'); }
-  return result;
-};
-
+    if (typeof result !== 'number') { throw new TypeError('result'); }
+    return result;
+}
 
 const _1_actual = mystery(-4);
 const _1_expect = -4;
@@ -155,7 +157,6 @@ console.assert(_8_actual === _8_expect, 'Test  8');
 const _9_expect = 4;
 const _9_actual = mystery(4);
 console.assert(_9_actual === _9_expect, 'Test  9');
-
 ```
 
 [TOP](#debuggercises)
@@ -171,8 +172,8 @@ console.assert(_9_actual === _9_expect, 'Test  9');
 ```txt
 + PASS: Test  1
 UNCAUGHT: Error: Loop exceeded 20 iterations
-    at mystery (  ...  /exercises/17-refactoring-loops/exercises/3-while-to-for.js:18:54)
-    at Object.<anonymous> (  ...  /exercises/17-refactoring-loops/exercises/3-while-to-for.js:33:19)
+    at mystery (  ...  /exercises/17-refactoring-loops/exercises/3-while-to-for.js:17:71)
+    at Object.<anonymous> (  ...  /exercises/17-refactoring-loops/exercises/3-while-to-for.js:31:19)
     at Module._compile (internal/modules/cjs/loader.js:1200:30)
     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1220:10)
     at Module.load (internal/modules/cjs/loader.js:1049:32)
@@ -197,17 +198,15 @@ UNCAUGHT: Error: Loop exceeded 20 iterations
  * @returns {number}
  */
 const mystery = (x) => {
-  if (typeof x !== 'number') { throw new TypeError('x'); }
+    if (typeof x !== 'number') { throw new TypeError('x'); }
 
-  let result = 0;
-  let i = 0;
-  while (i !== x) {
-    result += i;
-    i += 2;
-  }
+    let result = 0;
+    for (let i = 0; i < x; i += 2) {
+        result += i;
+    }
 
-  if (typeof result !== 'number') { throw new TypeError('result'); }
-  return result;
+    if (typeof result !== 'number') { throw new TypeError('result'); }
+    return result;
 };
 
 
@@ -234,8 +233,6 @@ console.assert(_5_actual === _5_expect, 'Test  5');
 const _6_expect = 0;
 const _6_actual = mystery(2);
 console.assert(_6_actual === _6_expect, 'Test  6');
-
-
 ```
 
 [TOP](#debuggercises)
@@ -271,16 +268,20 @@ console.assert(_6_actual === _6_expect, 'Test  6');
  * @returns {number}
  */
 const mystery = (x) => {
-  if (typeof x !== 'number') { throw new TypeError('x'); }
+    if (typeof x !== 'number') { throw new TypeError('x'); }
 
-  let result = 0;
-  let i = 6;
-  while (i % 6 !== x) {
-    result = result + i--;
-  }
+    let result = 0;
 
-  if (typeof result !== 'number') { throw new TypeError('result'); }
-  return result;
+    for (let i = 6; i >= x && x !== 0; i--) {
+
+        if (i % 6 !== x) {
+            result = result + i;
+        }
+    }
+
+    if (typeof result !== 'number') { throw new TypeError('result'); }
+
+    return result;
 }
 
 
@@ -307,8 +308,6 @@ console.assert(_5_actual === _5_expect, 'Test  5');
 const _6_expect = 20;
 const _6_actual = mystery(-2);
 console.assert(_6_actual === _6_expect, 'Test  6');
-
-
 ```
 
 [TOP](#debuggercises)
