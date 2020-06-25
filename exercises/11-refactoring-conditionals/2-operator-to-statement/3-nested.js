@@ -1,14 +1,16 @@
 'use strict';
 
 const conditional = (a, b) => {
-  const result = typeof a === 'boolean'
-    ? a === b
-      ? a
-      : typeof b
-    : typeof b === 'boolean'
-      ? b
-      : typeof a;
-  return result;
+    let result;
+
+    if (typeof a === 'boolean') {
+        if (a === b) {
+            result = a;
+        } else result = typeof b;
+    } else if (typeof b === 'boolean') {
+        result = b;
+    } else result = typeof a;
+    return result;
 };
 
 // path 1

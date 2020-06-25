@@ -2,15 +2,9 @@
 
 // refactor this function ot use a ternary operator
 const conditional = (a, b) => {
-  let result;
-  if (a && b) {
-    result = !a;
-  } else if (a || b) {
-    result = !b;
-  } else {
-    result = a === b;
-  }
-  return result;
+    let result;
+    result = (a && b) ? !a : (a || b) ? !b : a === b;
+    return result;
 };
 
 // path 1
