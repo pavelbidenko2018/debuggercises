@@ -1,13 +1,10 @@
 # Debuggercises 
 
-## /exercises/02-primitive-types/exercises 
+> 6/25/2020, 5:27:12 AM 
 
-> 6/18/2020, 5:27:50 AM 
-
-[../README.md](../README.md)
+## [exercises](../../README.md)/[02-primitive-types](../README.md)/exercises 
 
 - [/fill-in-the-type.js](#fill-in-the-typejs)  
-
 ---
 
 ## /fill-in-the-type.js 

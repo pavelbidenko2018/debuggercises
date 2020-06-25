@@ -1,10 +1,8 @@
 # Debuggercises 
 
-## /exercises/03-comparing-and-asserting 
+> 6/25/2020, 5:27:12 AM 
 
-> 6/18/2020, 5:27:50 AM 
-
-[../README.md](../README.md)
+## [exercises](../README.md)/03-comparing-and-asserting 
 
 - [/examples](./examples/README.md)
   - [/1-strict-equality.js](./examples/README.md#1-strict-equalityjs)  
@@ -16,4 +14,3 @@
 - [/exercises](./exercises/README.md)
   - [/1.js](./exercises/README.md#1js) - _pass_ 
   - [/2.js](./exercises/README.md#2js) - _pass_ 
-

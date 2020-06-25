@@ -1,15 +1,12 @@
 # Debuggercises 
 
-## /exercises/05-functions-101/1-scrambles 
+> 6/25/2020, 5:27:12 AM 
 
-> 6/18/2020, 5:27:50 AM 
-
-[../README.md](../README.md)
+## [exercises](../../README.md)/[05-functions-101](../README.md)/1-scrambles 
 
 - [/1-write-expected.js](#1-write-expectedjs) - _pass_ 
 - [/2-write-arguments.js](#2-write-argumentsjs) - _pass_ 
 - [/3-write-function.js](#3-write-functionjs) - _pass_ 
-
 ---
 
 ## /1-write-expected.js 

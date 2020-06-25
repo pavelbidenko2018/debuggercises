@@ -1,15 +1,12 @@
 # Debuggercises 
 
-## /exercises/01-variables/examples 
+> 6/25/2020, 5:27:12 AM 
 
-> 6/18/2020, 5:27:50 AM 
-
-[../README.md](../README.md)
+## [exercises](../../README.md)/[01-variables](../README.md)/examples 
 
 - [/1-declaration-assignment-reassignment.js](#1-declaration-assignment-reassignmentjs)  
 - [/2-reusing-variables.js](#2-reusing-variablesjs)  
 - [/3-const-vs-let.js](#3-const-vs-letjs) - _error_ 
-
 ---
 
 ## /1-declaration-assignment-reassignment.js 
@@ -107,8 +104,8 @@ UNCAUGHT: TypeError: Assignment to constant variable.
     at Function.Module._load (internal/modules/cjs/loader.js:937:14)
     at Module.require (internal/modules/cjs/loader.js:1089:19)
     at require (internal/modules/cjs/helpers.js:73:18)
-    at evaluate (  ...  /scripts/lib/evaluate.js:12:7)
-    at Object.<anonymous> (  ...  /scripts/review.js:100:1)
+    at evaluate (  ...  /scripts/lib/evaluate.js:28:7)
+    at Object.<anonymous> (  ...  /scripts/review.js:119:1)
     at Module._compile (internal/modules/cjs/loader.js:1200:30) 
 ```
 

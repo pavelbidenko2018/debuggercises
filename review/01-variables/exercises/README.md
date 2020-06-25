@@ -1,17 +1,14 @@
 # Debuggercises 
 
-## /exercises/01-variables/exercises 
+> 6/25/2020, 5:27:12 AM 
 
-> 6/18/2020, 5:27:50 AM 
-
-[../README.md](../README.md)
+## [exercises](../../README.md)/[01-variables](../README.md)/exercises 
 
 - [/1-let.js](#1-letjs)  
 - [/2-let.js](#2-letjs)  
 - [/3-let-or-const.js](#3-let-or-constjs)  
 - [/4-let-or-const.js](#4-let-or-constjs)  
 - [/5-let-or-const.js](#5-let-or-constjs)  
-
 ---
 
 ## /1-let.js 

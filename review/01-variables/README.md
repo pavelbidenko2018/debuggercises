@@ -1,10 +1,8 @@
 # Debuggercises 
 
-## /exercises/01-variables 
+> 6/25/2020, 5:27:12 AM 
 
-> 6/18/2020, 5:27:50 AM 
-
-[../README.md](../README.md)
+## [exercises](../README.md)/01-variables 
 
 - [/examples](./examples/README.md)
   - [/1-declaration-assignment-reassignment.js](./examples/README.md#1-declaration-assignment-reassignmentjs)  
@@ -16,4 +14,3 @@
   - [/3-let-or-const.js](./exercises/README.md#3-let-or-constjs)  
   - [/4-let-or-const.js](./exercises/README.md#4-let-or-constjs)  
   - [/5-let-or-const.js](./exercises/README.md#5-let-or-constjs)  
-

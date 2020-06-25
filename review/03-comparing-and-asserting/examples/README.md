@@ -1,10 +1,8 @@
 # Debuggercises 
 
-## /exercises/03-comparing-and-asserting/examples 
+> 6/25/2020, 5:27:12 AM 
 
-> 6/18/2020, 5:27:50 AM 
-
-[../README.md](../README.md)
+## [exercises](../../README.md)/[03-comparing-and-asserting](../README.md)/examples 
 
 - [/1-strict-equality.js](#1-strict-equalityjs)  
 - [/2-extra-assignment-vs-comparison.js](#2-extra-assignment-vs-comparisonjs) - _error (syntax)_ 
@@ -12,7 +10,6 @@
 - [/4-testing-with-assert.js](#4-testing-with-assertjs) - _incomplete_ 
 - [/extra-object-is.js](#extra-object-isjs)  
 - [/extra-strict-inequality.js](#extra-strict-inequalityjs)  
-
 ---
 
 ## /1-strict-equality.js 
@@ -102,8 +99,8 @@ SyntaxError: Invalid left-hand side in assignment
     at Function.Module._load (internal/modules/cjs/loader.js:937:14)
     at Module.require (internal/modules/cjs/loader.js:1089:19)
     at require (internal/modules/cjs/helpers.js:73:18)
-    at evaluate (  ...  /scripts/lib/evaluate.js:12:7)
-    at Object.<anonymous> (  ...  /scripts/review.js:100:1)
+    at evaluate (  ...  /scripts/lib/evaluate.js:28:7)
+    at Object.<anonymous> (  ...  /scripts/review.js:119:1)
     at Module._compile (internal/modules/cjs/loader.js:1200:30) 
 ```
 
@@ -206,8 +203,8 @@ UNCAUGHT: ReferenceError: _ is not defined
     at Function.Module._load (internal/modules/cjs/loader.js:937:14)
     at Module.require (internal/modules/cjs/loader.js:1089:19)
     at require (internal/modules/cjs/helpers.js:73:18)
-    at evaluate (  ...  /scripts/lib/evaluate.js:12:7)
-    at Object.<anonymous> (  ...  /scripts/review.js:100:1)
+    at evaluate (  ...  /scripts/lib/evaluate.js:28:7)
+    at Object.<anonymous> (  ...  /scripts/review.js:119:1)
     at Module._compile (internal/modules/cjs/loader.js:1200:30) 
 ```
 
