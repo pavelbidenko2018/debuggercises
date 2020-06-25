@@ -1,6 +1,6 @@
 # Debuggercises 
 
-> 6/25/2020, 2:34:07 PM 
+> 6/25/2020, 2:44:14 PM 
 
 ## /exercises 
 
@@ -198,10 +198,10 @@
     - [/2-for-one-line.js](./16-for/examples/README.md#2-for-one-linejs) - _pass_ 
     - [/3-for-infinite.js](./16-for/examples/README.md#3-for-infinitejs) - _too much iteration_ 
   - [/exercises](./16-for/exercises/README.md)
-    - [/1-write-tests.js](./16-for/exercises/README.md#1-write-testsjs) - _incomplete_ 
-    - [/2-fix-the-bugs.js](./16-for/exercises/README.md#2-fix-the-bugsjs) - _error_ 
-    - [/3-pass-tests.js](./16-for/exercises/README.md#3-pass-testsjs) - _incomplete_ 
-    - [/4-pass-tests.js](./16-for/exercises/README.md#4-pass-testsjs) - _incomplete_ 
+    - [/1-write-tests.js](./16-for/exercises/README.md#1-write-testsjs) - _pass_ 
+    - [/2-fix-the-bugs.js](./16-for/exercises/README.md#2-fix-the-bugsjs) - _pass_ 
+    - [/3-pass-tests.js](./16-for/exercises/README.md#3-pass-testsjs) - _pass_ 
+    - [/4-pass-tests.js](./16-for/exercises/README.md#4-pass-testsjs) - _pass_ 
 - [/17-refactoring-loops](./17-refactoring-loops/README.md)
   - [/exercises](./17-refactoring-loops/exercises/README.md)
     - [/1-for-to-while.js](./17-refactoring-loops/exercises/README.md#1-for-to-whilejs) - _pass_ 
