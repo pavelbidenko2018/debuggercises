@@ -1,6 +1,6 @@
 # Debuggercises 
 
-> 6/26/2020, 8:00:06 AM 
+> 6/26/2020, 8:26:33 AM 
 
 ## [exercises](../../README.md)/[10-conditionals](../README.md)/2-conditional-bodies 
 

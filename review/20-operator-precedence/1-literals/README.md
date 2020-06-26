@@ -1,10 +1,10 @@
 # Debuggercises 
 
-> 6/26/2020, 8:00:06 AM 
+> 6/26/2020, 8:26:33 AM 
 
 ## [exercises](../../README.md)/[20-operator-precedence](../README.md)/1-literals 
 
-- [/1-coercion-and-comparing.js](#1-coercion-and-comparingjs) - _incomplete_ 
+- [/1-coercion-and-comparing.js](#1-coercion-and-comparingjs) - _pass_ 
 - [/2-arithmetic.js](#2-arithmeticjs) - _incomplete_ 
 - [/3-logical-operators.js](#3-logical-operatorsjs) - _incomplete_ 
 - [/4-all-together.js](#4-all-togetherjs) - _pass_ 
@@ -12,23 +12,16 @@
 
 ## /1-coercion-and-comparing.js 
 
-> incomplete 
+> pass 
 >
 > [review source](../../../exercises/20-operator-precedence/1-literals/1-coercion-and-comparing.js)
 
 ```txt
 + PASS: Step 0
-UNCAUGHT: ReferenceError: _ is not defined
-    at Object.<anonymous> (  ...  /exercises/20-operator-precedence/1-literals/1-coercion-and-comparing.js:14:15)
-    at Module._compile (internal/modules/cjs/loader.js:1200:30)
-    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1220:10)
-    at Module.load (internal/modules/cjs/loader.js:1049:32)
-    at Function.Module._load (internal/modules/cjs/loader.js:937:14)
-    at Module.require (internal/modules/cjs/loader.js:1089:19)
-    at require (internal/modules/cjs/helpers.js:73:18)
-    at evaluate (  ...  /scripts/lib/evaluate.js:28:7)
-    at Object.<anonymous> (  ...  /scripts/review.js:119:1)
-    at Module._compile (internal/modules/cjs/loader.js:1200:30) 
++ PASS: Step 1
++ PASS: Step 2
++ PASS: Step 3
++ PASS: Step 4
 ```
 
 ```js
@@ -45,21 +38,27 @@ console.assert(step0 === expected, 'Step 0');
 /*
 
 */
-const step1 = _;
+const step1 = typeof NaN === typeof NaN;
 console.assert(step1 === expected, 'Step 1');
 
 /*
 
 */
-const step2 = _;
+const step2 = typeof undefined !== typeof null;
 console.assert(step2 === expected, 'Step 2');
 
 /*
 
 */
-const step3 = _;
+const step3 = typeof null !== typeof undefined;
 console.assert(step3 === expected, 'Step 3');
 
+/*
+
+*/
+
+const step4 = typeof undefined !== typeof 'asa';
+console.assert(step4 === expected, 'Step 4');
 ```
 
 [TOP](#debuggercises)
