@@ -1,36 +1,36 @@
 # Debuggercises 
 
-> 6/25/2020, 5:13:37 PM 
+> 6/26/2020, 8:00:06 AM 
 
 ## [exercises](../../README.md)/[19-implicit-coercion](../README.md)/3-replicate 
 
-- [/loose-inequality.js](#loose-inequalityjs) - _fail_ 
-- [/remainder.js](#remainderjs) - _fail_ 
-- [/unary-minus.js](#unary-minusjs) - _fail_ 
+- [/loose-inequality.js](#loose-inequalityjs) - _pass_ 
+- [/remainder.js](#remainderjs) - _pass_ 
+- [/unary-minus.js](#unary-minusjs) - _pass_ 
 ---
 
 ## /loose-inequality.js 
 
-> fail 
+> pass 
 >
 > [review source](../../../exercises/19-implicit-coercion/3-replicate/loose-inequality.js)
 
 ```txt
-- FAIL: Test 1
-- FAIL: Test 2
-- FAIL: Test 3
-- FAIL: Test 4
-- FAIL: Test 5
-- FAIL: Test 6
-- FAIL: Test 7
-- FAIL: Test 8
-- FAIL: Test 9
-- FAIL: Test 10
-- FAIL: Test 11
-- FAIL: Test 12
-- FAIL: Test 13
-- FAIL: Test 14
-- FAIL: Test 15
++ PASS: Test 1
++ PASS: Test 2
++ PASS: Test 3
++ PASS: Test 4
++ PASS: Test 5
++ PASS: Test 6
++ PASS: Test 7
++ PASS: Test 8
++ PASS: Test 9
++ PASS: Test 10
++ PASS: Test 11
++ PASS: Test 12
++ PASS: Test 13
++ PASS: Test 14
++ PASS: Test 15
 ```
 
 ```js
@@ -44,7 +44,7 @@
  * @returns {boolean}
  */
 function looseInequality(a, b) {
-
+    return (a == b) ? false : true;
 };
 
 const _01_a = null;
@@ -136,7 +136,6 @@ const _15_b = 'any other value';
 const _15_native = _15_a != _15_b;
 const _15_copy = looseInequality(_15_a, _15_b);
 console.assert(_15_copy === _15_native, 'Test 15');
-
 ```
 
 [TOP](#debuggercises)
@@ -145,20 +144,20 @@ console.assert(_15_copy === _15_native, 'Test 15');
 
 ## /remainder.js 
 
-> fail 
+> pass 
 >
 > [review source](../../../exercises/19-implicit-coercion/3-replicate/remainder.js)
 
 ```txt
-- FAIL: Test 1
-- FAIL: Test 2
-- FAIL: Test 3
-- FAIL: Test 4
-- FAIL: Test 5
-- FAIL: Test 6
-- FAIL: Test 7
-- FAIL: Test 8
-- FAIL: Test 9
++ PASS: Test 1
++ PASS: Test 2
++ PASS: Test 3
++ PASS: Test 4
++ PASS: Test 5
++ PASS: Test 6
++ PASS: Test 7
++ PASS: Test 8
++ PASS: Test 9
 ```
 
 ```js
@@ -171,7 +170,7 @@ console.assert(_15_copy === _15_native, 'Test 15');
  * @returns {number}
  */
 function remainder(a, b) {
-
+    return a % b;
 };
 
 const _1_a = '8';
@@ -227,7 +226,6 @@ const _9_b = '4';
 const _9_native = _9_a % _9_b;
 const _9_copy = remainder(_9_a, _9_b);
 console.assert(Object.is(_9_copy, _9_native), 'Test 9');
-
 ```
 
 [TOP](#debuggercises)
@@ -236,20 +234,20 @@ console.assert(Object.is(_9_copy, _9_native), 'Test 9');
 
 ## /unary-minus.js 
 
-> fail 
+> pass 
 >
 > [review source](../../../exercises/19-implicit-coercion/3-replicate/unary-minus.js)
 
 ```txt
-- FAIL: Test 1
-- FAIL: Test 2
-- FAIL: Test 3
-- FAIL: Test 4
-- FAIL: Test 5
-- FAIL: Test 6
-- FAIL: Test 7
-- FAIL: Test 8
-- FAIL: Test 9
++ PASS: Test 1
++ PASS: Test 2
++ PASS: Test 3
++ PASS: Test 4
++ PASS: Test 5
++ PASS: Test 6
++ PASS: Test 7
++ PASS: Test 8
++ PASS: Test 9
 ```
 
 ```js
@@ -261,7 +259,7 @@ console.assert(Object.is(_9_copy, _9_native), 'Test 9');
  * @returns {number}
  */
 function unaryMinus(a) {
-
+    return -a;
 };
 
 const _1_a = 1;
@@ -308,7 +306,6 @@ const _9_a = undefined;
 const _9_native = -_9_a;
 const _9_copy = unaryMinus(_9_a);
 console.assert(Object.is(_9_copy, _9_native), 'Test 9');
-
 ```
 
 [TOP](#debuggercises)
