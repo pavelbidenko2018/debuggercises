@@ -6,7 +6,7 @@
  * @returns {number}
  */
 function unaryMinus(a) {
-
+    return -a;
 };
 
 const _1_a = 1;

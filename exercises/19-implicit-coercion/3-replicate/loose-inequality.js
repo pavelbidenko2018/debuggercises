@@ -8,7 +8,7 @@
  * @returns {boolean}
  */
 function looseInequality(a, b) {
-
+    return (a == b) ? false : true;
 };
 
 const _01_a = null;

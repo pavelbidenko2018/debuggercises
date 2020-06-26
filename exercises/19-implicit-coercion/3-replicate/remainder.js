@@ -7,7 +7,7 @@
  * @returns {number}
  */
 function remainder(a, b) {
-
+    return a % b;
 };
 
 const _1_a = '8';
